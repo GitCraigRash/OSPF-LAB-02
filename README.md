@@ -2,13 +2,27 @@
 
 Welcome to OSPF lesson 102
 Goal:
+
+As muscle-memory practice. Set up hostnames for some of the routers. 
+Router 4 as R4
+Router 5 as R5
+Router 6 as R6
+
+Set up Router interfaces for some of the routers. 
+Router 4 as 4.4.4.4
+Router 5 as 5.5.5.5
+Router 6 as 6.6.6.6
+
 Activate OSPF per-interface and set area according to this scheme.
 -  Designate interfaces facing R0 as area 0
 -  Designate interfaces facing R1,R2,R3 to area 1
 -  Designate interfaces facing R4,R5,R6 to area 2
-- 
-- Configure LAN-facing  interfaces passive. 
-- Adjust OSPF interface cost to favor the path though R1.
+
+
+Configure R4's LAN-facing interface as passive.
+Adjust OSPF interface cost to favor the path though R5.
+
+
 
 Topology:
 Device	| IP address		| Subnet		| Designated Gateway
