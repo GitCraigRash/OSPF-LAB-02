@@ -5,7 +5,7 @@ Be able to explain:
 1. Explain the purpose of a hierarchical routing design and why flat OSPF fails at scale.
 Flat, or single area OSPF, fails at scale because of memory limitations. To reduce how much each router has to remember, multi-area OSPF subdivides a massive network to allow routers to effectivly sumarize routes.  
 2. Design and configure a multi-area topology featuring a central backbone (Area 0).
-all other areas  must connect to the backbone, area 0. All areas must be continuous. for example: there cannot be two unconnected sets of routers designated area 3. Area border routers can be connected to a maximum of 2 areas. 
+all other areas  must connect to the backbone, area 0. All areas must be continuous. for example: there cannot be two unconnected sets of routers designated area 3.
 3. Correctly identify and configure Area Border Routers (ABRs).
 Area border routers have at least one interface in one area and a second interface in another. 
 configuration:
