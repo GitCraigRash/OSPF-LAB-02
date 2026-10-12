@@ -5,9 +5,9 @@ Be able to explain:
 1. Explain the purpose of a hierarchical routing design and why flat OSPF fails at scale.
 Flat, or single area OSPF, fails at scale because of memory limitations. To reduce how much each router has to remember, multi-area OSPF subdivides a massive network to allow routers to effectivly sumarize routes.  
 2. Design and configure a multi-area topology featuring a central backbone (Area 0).
-all other areas  must connect to the backbone, area 0. All areas must be continuous. for example: there cannot be two unconnected sets of routers designated area 3. Area boarder routers can be connected to a maximum of 2 areas. 
+all other areas  must connect to the backbone, area 0. All areas must be continuous. for example: there cannot be two unconnected sets of routers designated area 3. Area border routers can be connected to a maximum of 2 areas. 
 3. Correctly identify and configure Area Border Routers (ABRs).
-Area boarder routers have at least one interface in one area and a second interface in another. 
+Area border routers have at least one interface in one area and a second interface in another. 
 configuration:
    R3#(config) int G0/0/0
    R3#(config-if) ip ospf 1 area 0
@@ -17,9 +17,16 @@ configuration:
 5. Verify routing tables, LSDB (Link State Database), and neighbor adjacencies using CLI commands.
    R>show route ! This displays routes currently in use. 
    R>show ip ospf neighbor ! Displays neighbors
-   R>show ip ospf border-routers ! Displays boarder routers and boundry information.
+   R>show ip ospf border-routers ! Displays border routers and boundry information.
    R>show ip ospf database ! Displays information about ospf.
    
+Things to remember:
+The Contiguous Area 0 Rule: connecting two non-backbone areas directly without passing traffic through Area 0, will violate core OSPF architecture rules.
+
+Network Statement Typos: A misplaced wildcard mask or wrong area ID will silently fail to form adjacencies without throwing obvious syntax errors.
+
+DR/BDR Confusion: In broadcast multi-access networks (like Ethernet segments), Designated Routers and Backup Designated Routers dictate how adjacencies form, which can alter expected neighbor states.
+
 
 Goal:
 
