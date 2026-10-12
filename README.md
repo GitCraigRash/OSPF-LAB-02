@@ -18,6 +18,7 @@ configuration:
    R>show route ! This displays routes currently in use. 
    R>show ip ospf neighbor ! Displays neighbors
    R>show ip ospf border-routers ! Displays boarder routers and boundry information.
+   R>show ip ospf database ! Displays information about ospf.
    
 
 Goal:
