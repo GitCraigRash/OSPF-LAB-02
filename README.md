@@ -27,6 +27,27 @@ Network Statement Typos: A misplaced wildcard mask or wrong area ID will silentl
 
 DR/BDR Confusion: In broadcast multi-access networks (like Ethernet segments), Designated Routers and Backup Designated Routers dictate how adjacencies form, which can alter expected neighbor states.
 
+Tickets
+- Ticket 1 
+R4 and R5 are not becoming neighbors. Why?
+
+- Ticekt 2
+No connection to internet
+Symptom: No routers can ping google 8.8.8.8 at all.  
+*TOSELF Consider giving ISP a static route back to R0, but consider if default infomration originate is enough. 
+
+- Ticket 3
+R1 cannot reach full with R3.
+
+- Ticekt 4 - Subnet mismatch
+R2 and R3 cannot form a neighbor.  R2 needs to change it’s subnet.
+
+- Ticekt 5 - Passive interface not implemented Symptom:R4's CPU usage is higher than expected, and network monitors show continuous multicast traffic hitting the switch port connected to PC3's subnet, even though no other routers live on that LAN. Check for routing protocol "shouting" into empty rooms where no OSPF neighbors reside. The traP: R4 does not have its LAN-facing interface configured as a passive-interface
+
+- Ticket 6: The Silent Neighbor Drop
+Symptom: R1 and R2 can ping each other's physical interfaces, but their OSPF adjacency is completely down and stuck in EXSTART or throwing dead-timer drops.
+The Clue: Check why the routers are refusing to trust each other's packets despite matching area IDs and timers.
+The Trap: One router has OSPF message-digest authentication enabled (ip ospf authentication-key or MD5 keychain), while the other is looking for unauthenticated plain text.
 
 
 
@@ -43,8 +64,8 @@ R1 	| G0/0/0 = 10.1.4.1 	| 255.255.255.252
 R1 	| G0/0/1 = 10.1.4.5 	| 255.255.255.252
 R1 	| G0/0/2 = 192.168.1.1	| 255.255.255.0
 
-R2 	| G0/0/0 = 10.1.4.2 	| 255.255.255.252; 
-R2 	| G0/0/1 = 10.1.4.9  	| 255.255.255.252
+R2 	| G0/0/0 = 10.1.4.2 	| 255.255.255.252 
+R2 	| G0/0/1 = 10.1.4.9  	| 255.255.255.248
 R2 	| G0/0/2 = 192.168.2.1 	| 255.255.255.0
 
 R3 	| G0/0/0 = 10.1.4.10 	| 255.255.255.252 
