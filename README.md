@@ -28,28 +28,6 @@ Network Statement Typos: A misplaced wildcard mask or wrong area ID will silentl
 DR/BDR Confusion: In broadcast multi-access networks (like Ethernet segments), Designated Routers and Backup Designated Routers dictate how adjacencies form, which can alter expected neighbor states.
 
 
-Goal:
-
-
-As muscle-memory practice. Set up hostnames for some of the routers. 
-Router 4 as R4
-Router 5 as R5
-Router 6 as R6
-
-Set up Router interfaces for some of the routers. 
-Router 4 as 4.4.4.4
-Router 5 as 5.5.5.5
-Router 6 as 6.6.6.6
-
-Activate OSPF per-interface and set area according to this scheme.
--  Designate interfaces facing R0 as area 0
--  Designate interfaces facing R1,R2,R3 to area 1
--  Designate interfaces facing R4,R5,R6 to area 2
-
-More practice:
-Configure R4's LAN-facing interface as passive.
-Adjust OSPF interface cost to favor the path though R5.
-
 
 
 Topology:
