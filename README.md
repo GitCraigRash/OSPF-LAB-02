@@ -42,9 +42,8 @@ R1 cannot reach full with R3.
 - Ticekt 4 - Subnet mismatch
 R2 and R3 cannot form a neighbor.  R2 needs to change it’s subnet.
 
-- Ticekt 5 - Passive interface not implemented
-- Symptom:R4's CPU usage is higher than expected, and network monitors show continuous multicast traffic hitting the switch port connected to PC3's subnet, even though no other routers live on that LAN. Check for routing protocol "shouting" into empty rooms where no OSPF neighbors reside.
-- The traP: R4 does not have its LAN-facing interface configured as a passive-interface
+- Ticekt 5
+R4's CPU usage is higher than expected, and network monitors show continuous multicast traffic hitting the switch port connected to PC3's subnet, even though no other routers live on that LAN. Check for routing protocol "shouting" into empty rooms where no OSPF neighbors reside.
 
 - Ticket 6: The Silent Neighbor Drop
 Symptom: R1 and R2 can ping each other's physical interfaces, but their OSPF adjacency is completely down and stuck in EXSTART or throwing dead-timer drops.
