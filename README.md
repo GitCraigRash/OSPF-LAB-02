@@ -2,19 +2,13 @@
 
 Welcome to OSPF lesson 102
 Goal:
--  Activate OSPF globally on all routers
--  Designate R0 as Area0
--  Designate R1,R2,R3 to area 1
--  Designate R4,R5,R6 to area 2
--  Activate OSPF per-interface  and set area according to this scheme.
--  
-- Configure all Routers to be OSPF neighbors and advertising their routes.
+Activate OSPF per-interface and set area according to this scheme.
+-  Designate interfaces facing R0 as area 0
+-  Designate interfaces facing R1,R2,R3 to area 1
+-  Designate interfaces facing R4,R5,R6 to area 2
 - 
 - Configure LAN-facing  interfaces passive. 
 - Adjust OSPF interface cost to favor the path though R1.
-
-
-- Experiment: Change the hello timer on one router and observe where adjacency breaks.
 
 Topology:
 Device	| IP address		| Subnet		| Designated Gateway
